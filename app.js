@@ -14,7 +14,7 @@ app.post('/submit',function(req,res){
   if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
     return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
   }
-  var secretKey = "6LeOmncbAAAAACz5YeeEsEZpFNRbh8pmS1FlQ4H5";
+  var secretKey = "--your secretkey--";
   var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
   request(verificationUrl,function(error,response,body) {
     body = JSON.parse(body);
